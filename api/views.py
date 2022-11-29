@@ -38,9 +38,15 @@ class FetchTable(APIView):
             response['message'] = 'Successfully retrieved'
             response['data'] = data
 
-        except Exception:
+        except Exception as e:
             response['status'] = 500
-            response['message'] = 'Something went wrong'
-            response['data'] = {}
+            response['message'] = f'Something went wrong: {e}'
+            response['data'] = {
+                'rank': '0',
+                'name': '--',
+                'pts': '0',
+                'gd': '0',
+                'mp': '0'
+            }
 
         return Response(response)
