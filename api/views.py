@@ -1,15 +1,7 @@
-from django.shortcuts import render
-from rest_framework import viewsets
-from .serializers import ClubSerializer
-from .models import Club
 from rest_framework.views import APIView
 from rest_framework.response import Response
 import bs4
 import requests
-
-class HeroViewSet(viewsets.ModelViewSet):
-    queryset = Club.objects.all().order_by('name')
-    serializer_class = ClubSerializer
 
 class FetchTable(APIView):
     def scrape(self):
@@ -38,7 +30,7 @@ class FetchTable(APIView):
 
         return {'table': table}
 
-    def get(self, request, format=None):
+    def get(self, request):
         response = {}
         try:
             data = self.scrape()
