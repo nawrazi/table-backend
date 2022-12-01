@@ -11,11 +11,12 @@ def scrape(url):
     table = []
     for row in data:
         team = {
-            'rank': (row.find('td')).text.strip(),
+            'rank': int((row.find('td')).text.strip()),
             'name': (row.find('span', class_='widget-match-standings__team--full-name')).text.strip(),
-            'pts': (row.find('td', class_='widget-match-standings__pts')).text.strip(),
-            'gd': (row.find('td', class_='widget-match-standings__goals-diff')).text.strip(),
-            'mp': (row.find('td', class_='widget-match-standings__matches-played')).text.strip()
+            'points': int((row.find('td', class_='widget-match-standings__pts')).text.strip()),
+            'goals': (row.find('td', class_='widget-match-standings__goals-diff')).text.strip(),
+            'matches': int((row.find('td', class_='widget-match-standings__matches-played')).text.strip()),
+            'logo': row.find('img', class_='widget-match-standings__crest')['src'].strip()
         }
         table.append(team)
 
