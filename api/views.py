@@ -6,7 +6,7 @@ class PremierLeague(APIView):
     def get(self, request):
         response = {}
         try:
-            data = scrape(Url.PREMIER_LEAGUE)
+            data = scrape(Url.PREMIER_LEAGUE, 1)
             response['status'] = 200
             response['message'] = 'Successfully retrieved'
             response['data'] = data
@@ -22,7 +22,7 @@ class Championship(APIView):
     def get(self, request):
         response = {}
         try:
-            data = scrape(Url.CHAMPIONSHIP)
+            data = scrape(Url.CHAMPIONSHIP, 2)
             response['status'] = 200
             response['message'] = 'Successfully retrieved'
             response['data'] = data
@@ -38,7 +38,7 @@ class LaLiga(APIView):
     def get(self, request):
         response = {}
         try:
-            data = scrape(Url.LA_LIGA)
+            data = scrape(Url.LA_LIGA, 3)
             response['status'] = 200
             response['message'] = 'Successfully retrieved'
             response['data'] = data
@@ -54,7 +54,7 @@ class Bundesliga(APIView):
     def get(self, request):
         response = {}
         try:
-            data = scrape(Url.BUNDESLIGA)
+            data = scrape(Url.BUNDESLIGA, 4)
             response['status'] = 200
             response['message'] = 'Successfully retrieved'
             response['data'] = data
@@ -70,7 +70,7 @@ class League1(APIView):
     def get(self, request):
         response = {}
         try:
-            data = scrape(Url.LEAGUE_1)
+            data = scrape(Url.LEAGUE_1, 5)
             response['status'] = 200
             response['message'] = 'Successfully retrieved'
             response['data'] = data
